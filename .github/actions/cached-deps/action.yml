@@ -24,5 +24,5 @@ runs:
       if: steps.cache.outputs.cache-hit != 'true' 
       run: | 
         npm ci
-        echo  "has-installed=${{ inputs.cached }}" >> $GITHUB_OUTPUT
+        echo  "has-installed='true'" >> $GITHUB_OUTPUT
       shell: bash
