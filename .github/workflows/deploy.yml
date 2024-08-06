@@ -19,9 +19,12 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
       - name: Install and Cache dependencies
+        id: install-deps-action
         uses: ./.github/actions/cached-deps/
         with: 
           cached: "false"
+      - name: Check if deps are installed
+        run: echo ${{ steps.install-deps-action.outputs.has-installed }}    
       - name: Test code
         id: run-tests
         run: npm run test
