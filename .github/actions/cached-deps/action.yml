@@ -4,17 +4,18 @@ inputs:
   cached: 
     description: "If false no cache at all"
     required: false
-    default: "true"
+    default: 'true'
 runs: 
   using: "composite"
   steps:
     - name: Cache dependencies
+      if: inputs.cached == 'true'
       id: cache
       uses: actions/cache@v3
       with:
         path: node_modules
         key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
     - name: Install dependencies
-      if: inputs.cached == 'true' && steps.cache.outputs.cache-hit != 'true' 
+      if: steps.cache.outputs.cache-hit != 'true' 
       run: npm ci
       shell: bash
