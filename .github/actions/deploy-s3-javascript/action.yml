@@ -1,0 +1,5 @@
+name: 'Deply to AWS S3'
+description: 'DEploy a static website via AWS S3'
+runs: 
+  using: 'node16' # it's telling github that we are using a js action because  is a js runtime
+  main: 'main.js' # define the file that we specify
