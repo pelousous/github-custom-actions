@@ -8,7 +8,7 @@ inputs:
 outputs:
   has-installed:
     description: "check if the deps has been cached"
-    value: ${{ steps.install-deps.outputs.has-installed }} || 'false'   
+    value: ${{ steps.install-deps.outputs.has-installed }}  
 runs: 
   using: "composite"
   steps:
