@@ -9,10 +9,11 @@ function run() {
   const distFolder = core.getInput('dist-folder', { required: true });
 
   // 2) upload files
-  const s3Uri = `s3://${bucket}`
+  // const s3Uri = `s3://${bucket}`
+
   // the exec command will automatically look
   // for the secrets environments variables setted in deploy.yml
-  exec.exec(`aws s3 sync ${distFolder} ${s3Uri} --region ${bucketRegion}`);
+  // exec.exec(`aws s3 sync ${distFolder} ${s3Uri} --region ${bucketRegion}`);
 
   core.notice('hello from my custom Javascript Action!');
 }
