@@ -77,3 +77,16 @@ jobs:
       #     bucket: gha-custom-action-hosting
       #     dist-folder: dist
           # bucket-region: us-east-2
+      - name: Deploy site
+        id: deploy
+        uses: ./.github/actions/deploy-s3-javascript
+        env:
+          AWS_ACCESS_KEY_ID: xxxxxxxx
+          AWS_SECRET_ACCESS_KEY: xxxxxx
+        with:
+          bucket: gha-custom-action-hosting
+          dist-folder: dist
+          bucket-region: us-east-2
+      - name: bucket infos        
+        run: |
+          echo "Live url ${{ steps.deploy.outputs.bucket-url }}" 

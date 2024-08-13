@@ -15,6 +15,7 @@ function run() {
   // for the secrets environments variables setted in deploy.yml
   // exec.exec(`aws s3 sync ${distFolder} ${s3Uri} --region ${bucketRegion}`);
 
+  core.setOutput("bucket-url", 'amazon url to show');
   core.notice('hello from my custom Javascript Action!');
 }
 

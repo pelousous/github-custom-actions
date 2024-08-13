@@ -11,6 +11,9 @@ inputs:
   dist-folder:
     description: "The folder containing the deployable files"
     required: true
+outputs:    
+  bucket-url:
+    description: "the url of the deploied bucket"
 runs: 
   using: 'node16' # it's telling github that we are using a js action because  is a js runtime
   main: 'main.js' # define the file that we specify
